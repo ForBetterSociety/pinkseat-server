@@ -4,12 +4,12 @@ const router = express.Router();
 const pool = require('../../module/pool.js');
 
 //post localhost:3000/gather {pregnant_idx : 1, occupied : 1}
-//점유 되었을 때
+//임산부 좌석의 상태가 바뀔 때
 router.post('/', async function(req, res) {
 	let pregnant_idx = req.body.pregnant_idx;
 	let occupied = req.body.occupied;
 
-	let updateQuery = 'UPDATE pregnant SET occupied = ? WHERE prenant_idx = ?';
+	let updateQuery = 'UPDATE pregnant SET occupied = ? WHERE pregnant_idx = ?';
 	let updateResult = await pool.queryParamCnt_Arr(updateQuery, [occupied, pregnant_idx]);
 	
 	if (!updateResult) {
