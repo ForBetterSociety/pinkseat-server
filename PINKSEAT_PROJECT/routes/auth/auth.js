@@ -42,7 +42,7 @@ router.post('/register', async(req, res, next) => {
   var user_name = req.body.user_name;
   var user_birth = req.body.user_birth;
   var user_address = req.body.user_address;
-  var phone = req.body.phone;
+  var user_date = req.body.user_date;
 
   console.log(req,body);
   
